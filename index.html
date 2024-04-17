@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./style.css">
     <title>Paper $PLANE Game</title>
     <script src="https://telegram.org/js/telegram-web-app.js">
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+        
         const username = window.Telegram.WebApp.initData.user.username || window.Telegram.WebApp.initData.user.firstName || 'Guest';
         
         window.Telegram.WebApp.MainButton.setText('Join Paper $PLANE}');
@@ -15,9 +18,6 @@
         });
         window.Telegram.WebApp.MainButton.enable();
         window.Telegram.WebApp.MainButton.show();
-
-        window.Telegram.WebApp.ready();
-        window.Telegram.WebApp.expand();
 
         console.log('Hello, ' + username + '!');
 
