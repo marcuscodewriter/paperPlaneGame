@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css">
     <title>Paper $PLANE Game</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-  <script type="module" crossorigin src="./assets/index-M3oExPQy.js"></script>
-  <link rel="modulepreload" crossorigin href="./assets/phaser-lWPI-X05.js">
-</head>
-
-<body>
-    <div id="app">
-        <div id="game-container"></div>
-    </div>
-    <script>
+    <script src="https://telegram.org/js/telegram-web-app.js">
         console.log('Webapp initialized');
         window.Telegram.WebApp.ready();
         window.Telegram.WebApp.expand();
 
-        const username = window.Telegram.WebApp.initData.user.username || window.Telegram.WebApp.initData.user.firstName || 'Guest';
+        var user = Telegram.WebApp.initDataUnsafe.user;
+        var username = "Guest"
+        if (user) {
+            if (user.username && user.username.length > 0) {
+                username = user.username;
+            } else if (user.first_name && user.first_name.length > 0) {
+                username = user.first_name;
+            }
+        }
         
         window.Telegram.WebApp.MainButton.setText('Join Paper $PLANE}');
         window.Telegram.WebApp.MainButton.onClick(function () {
@@ -29,13 +28,19 @@
         window.Telegram.WebApp.MainButton.enable();
         window.Telegram.WebApp.MainButton.show();
 
-        console.log('Hello, ' + username + '!');
-
         alert('Hello, ' + username + '!');
         
         if (username !== "Guest") {
             window.localStorage.setItem('username', username);
         }
     </script>
+  <script type="module" crossorigin src="./assets/index-M3oExPQy.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/phaser-lWPI-X05.js">
+</head>
+
+<body>
+    <div id="app">
+        <div id="game-container"></div>
+    </div>
 </body>
 </html>
