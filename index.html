@@ -6,7 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css">
     <title>Paper $PLANE Game</title>
-  <script type="module" crossorigin src="./assets/index-JA5dXkYU.js"></script>
+    <script src="https://telegram.org/js/telegram-web-app.js">
+        const username = window.Telegram.WebApp.initData.user.username || window.Telegram.WebApp.initData.user.firstName || 'Guest';
+        
+        window.Telegram.WebApp.MainButton.setText('Join Paper $PLANE}');
+        window.Telegram.WebApp.MainButton.onClick(function () {
+            window.Telegram.WebApp.openTelegramLink('https://t.me/paperplane_ton');
+        });
+        window.Telegram.WebApp.MainButton.enable();
+        window.Telegram.WebApp.MainButton.show();
+
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+
+        console.log('Hello, ' + username + '!');
+        
+        if (username !== "Guest") {
+            window.localStorage.setItem('username', username);
+        }
+    </script>
+  <script type="module" crossorigin src="./assets/index-M3oExPQy.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/phaser-lWPI-X05.js">
 </head>
 
