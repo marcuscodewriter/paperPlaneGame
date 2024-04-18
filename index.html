@@ -8,7 +8,7 @@
     <title>Paper $PLANE Game</title>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script type="text/javascript" src="https://download.playfab.com/PlayFabClientApi.js"></script>
-  <script type="module" crossorigin src="./assets/index-UNEvHXEX.js"></script>
+  <script type="module" crossorigin src="./assets/index-5TvF88F4.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/phaser-cxBNu8M8.js">
 </head>
 
@@ -38,7 +38,7 @@
         if (username !== "Guest") {
             window.localStorage.setItem('username', username);
 
-            PlayFab.settings.titleId = 'F6BAC';
+            PlayFab.settings.titleId = import.meta.env.TITLE_ID;
 
             var LoginCallback = function (result, error) {
                 if (result !== null) {
@@ -55,8 +55,6 @@
             };
 
             PlayFabClientSDK.LoginWithCustomID(loginRequest, LoginCallback);
-
-            alert('Welcome ' + username + ' to Paper $PLANE Game!');
         }
     </script>
     <div id="app">
